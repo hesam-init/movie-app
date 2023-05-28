@@ -4,7 +4,7 @@ import { apiRoute } from "../api/routes.ts";
 import { Vitrin } from "../types/vitrinType.ts";
 import { Head } from "$fresh/runtime.ts";
 import { asset } from "$fresh/runtime.ts";
-import SearchBar from "../islands/searchBar.tsx";
+import SearchBar from "../islands/SearchBar.tsx";
 import NavBar from "../components/NavBar.tsx";
 import HeroHeader from "../islands/HeroHeader.tsx";
 import GenreSlider from "../components/GenreSlider.tsx";
