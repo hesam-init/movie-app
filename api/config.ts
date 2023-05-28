@@ -1,7 +1,3 @@
-import axios from "npm:axios@1.4.0";
-
-export const api = axios.create({
-  baseURL: "http://boxlimon.com/api",
-  timeout: 1000,
-  headers: { "X-Custom-Header": "foobar" },
-});
+export const api = (url: string) => {
+  return fetch(`http://boxlimon.com/api/${url}/4F5A9C3D9A86FA54EACEDDD635185`);
+};
