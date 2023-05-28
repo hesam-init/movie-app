@@ -5,6 +5,7 @@ import { Vitrin } from "../types/vitrinType.ts";
 import { Head } from "$fresh/runtime.ts";
 import GenreSlider from "../components/genreSlider/GenreSlider.tsx";
 import HeroHeader from "../islands/HeroHeader.tsx";
+import { asset } from "$fresh/runtime.ts";
 
 export const handler: Handlers<Vitrin | null> = {
   async GET(_, ctx) {
@@ -13,8 +14,8 @@ export const handler: Handlers<Vitrin | null> = {
     if (resp.status !== 200) {
       return ctx.render(null);
     } else {
-      const user: Vitrin = jsonData;
-      return ctx.render(user);
+      const data: Vitrin = jsonData;
+      return ctx.render(data);
     }
   },
 };
@@ -28,7 +29,7 @@ export default function Page({ data }: PageProps<Vitrin | null>) {
     <>
       <Head>
         <title>Chad</title>
-        <link rel="stylesheet" href="style/global.css" />
+        <link rel="stylesheet" href={asset("style/global.css")} />
       </Head>
       <div className="w-full flex items-center justify-center">
         <div className="w-full lg:max-w-screen-lg flex flex-col">
