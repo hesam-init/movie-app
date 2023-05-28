@@ -4,8 +4,9 @@ import { apiRoute } from "../api/routes.ts";
 import { Vitrin } from "../types/vitrinType.ts";
 import { Head } from "$fresh/runtime.ts";
 import GenreSlider from "../components/genreSlider/GenreSlider.tsx";
-import HeroHeader from "../islands/HeroHeader.tsx";
+import HeroHeader from "../islands/heroHeader.tsx";
 import { asset } from "$fresh/runtime.ts";
+import SearchBar from "../islands/searchBar.tsx";
 
 export const handler: Handlers<Vitrin | null> = {
   async GET(_, ctx) {
@@ -30,10 +31,17 @@ export default function Page({ data }: PageProps<Vitrin | null>) {
       <Head>
         <title>Chad</title>
         <link rel="stylesheet" href={asset("style/global.css")} />
+        <link rel="stylesheet" href={asset("style/home.css")} />
       </Head>
       <div className="w-full flex items-center justify-center">
-        <div className="w-full lg:max-w-screen-lg flex flex-col">
+        <div className="w-full space-y-5 lg:max-w-screen-lg flex flex-col">
+          {/* hero header */}
           <HeroHeader posters={data.genres?.[1].posters?.slice(0, 9)} />
+
+          {/* search bar */}
+          <SearchBar />
+
+          {/* sliders */}
           <div className="flex mt-8 flex-col gap-5 text-right px-3">
             {data.genres?.map((data) => (
               <GenreSlider
