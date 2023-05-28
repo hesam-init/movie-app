@@ -14,7 +14,7 @@ const manifest = {
     "./routes/index.tsx": $1,
   },
   islands: {
-    "./islands/HeroHeader.tsx": $$0,
+    "./islands/heroHeader.tsx": $$0,
     "./islands/searchBar.tsx": $$1,
   },
   baseUrl: import.meta.url,
