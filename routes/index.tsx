@@ -3,11 +3,11 @@ import { api } from "../api/config.ts";
 import { apiRoute } from "../api/routes.ts";
 import { Vitrin } from "../types/vitrinType.ts";
 import { Head } from "$fresh/runtime.ts";
-import GenreSlider from "../components/genreSlider/GenreSlider.tsx";
-import HeroHeader from "../islands/heroHeader.tsx";
 import { asset } from "$fresh/runtime.ts";
 import SearchBar from "../islands/searchBar.tsx";
-import NavBar from "../components/navBar/NavBar.tsx";
+import NavBar from "../components/NavBar.tsx";
+import HeroHeader from "../islands/HeroHeader.tsx";
+import GenreSlider from "../components/GenreSlider.tsx";
 
 export const handler: Handlers<Vitrin | null> = {
   async GET(_, ctx) {
@@ -39,7 +39,7 @@ export default function Page({ data }: PageProps<Vitrin | null>) {
           {/* navbar */}
           <NavBar active="/" />
 
-          {/* hero header */}
+          {/* hero header section */}
           <HeroHeader posters={data.genres?.[1].posters?.slice(0, 9)} />
 
           {/* search bar */}
