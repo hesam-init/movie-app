@@ -11,7 +11,7 @@ function GenreSlider({ id, title, posters }: GenreSliderProps) {
   return (
     <div className="text">
       <h1>{title}</h1>
-      <div className="grid grid-cols-5">
+      <div className="flex overflow-x-scroll">
         {posters?.map((data) => (
           <Slide
             image={data.image}
