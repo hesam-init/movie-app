@@ -25,7 +25,7 @@ function HeroHeader({ posters }: HeroHeaderProps) {
   }
 
   return (
-    <div className="w-full h-96 mt-5 px-3 overflow-hidden">
+    <div className="w-full h-96 mt-5 px-2 overflow-hidden">
       <div className="bg-[#1A1C22] flex  rounded-lg h-full overflow-hidden">
         {/* cover image */}
         <div

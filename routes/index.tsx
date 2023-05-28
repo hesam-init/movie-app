@@ -7,6 +7,7 @@ import GenreSlider from "../components/genreSlider/GenreSlider.tsx";
 import HeroHeader from "../islands/heroHeader.tsx";
 import { asset } from "$fresh/runtime.ts";
 import SearchBar from "../islands/searchBar.tsx";
+import NavBar from "../components/navBar/NavBar.tsx";
 
 export const handler: Handlers<Vitrin | null> = {
   async GET(_, ctx) {
@@ -34,15 +35,18 @@ export default function Page({ data }: PageProps<Vitrin | null>) {
         <link rel="stylesheet" href={asset("style/home.css")} />
       </Head>
       <div className="w-full flex items-center justify-center">
-        <div className="w-full space-y-5 lg:max-w-screen-lg flex flex-col">
+        <div className="w-full p-3 space-y-5 lg:max-w-screen-lg flex flex-col">
+          {/* navbar */}
+          <NavBar active="/" />
+
           {/* hero header */}
           <HeroHeader posters={data.genres?.[1].posters?.slice(0, 9)} />
 
           {/* search bar */}
-          <SearchBar />
+          {/* <SearchBar /> */}
 
           {/* sliders */}
-          <div className="flex mt-8 flex-col gap-5 text-right px-3">
+          <div className="flex mt-8 flex-col gap-5 px-2 text-right">
             {data.genres?.map((data) => (
               <GenreSlider
                 key={data.id}
