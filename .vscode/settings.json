@@ -3,11 +3,9 @@
   "deno.lint": true,
   "editor.defaultFormatter": "denoland.vscode-deno",
   "editor.suggest.showStatusBar": true,
-  "editor.quickSuggestions": {
-    "strings": true
-  },
-  "cSpell.words": ["vitrin"],
+  "cSpell.words": ["vitrin", "twind"],
   "conventionalCommits.autoCommit": false,
   "conventionalCommits.promptFooter": false,
-  "conventionalCommits.promptScopes": false
+  "conventionalCommits.promptScopes": false,
+  "twind.enable": true
 }

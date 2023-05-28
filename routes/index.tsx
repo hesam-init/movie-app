@@ -1,6 +1,7 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { api } from "../api/config.ts";
 import { apiRoute } from "../api/routes.ts";
+import GenreSlider from "../components/genreSlider/genreSlider.tsx";
 import { Vitrin } from "../types/vitrinType.ts";
 
 export const handler: Handlers<Vitrin | null> = {
@@ -22,8 +23,17 @@ export default function Page({ data }: PageProps<Vitrin | null>) {
   }
 
   return (
-    <div>
-      {data.countries?.map((data) => <h1>{data.title}</h1>)}
+    <div className="">
+      <div className="flex flex-col gap-5 overflow-hidden text-right p-3">
+        {data.genres?.map((data) => (
+          <GenreSlider
+            key={data.id}
+            id={data.id}
+            title={data.title}
+            posters={data.posters}
+          />
+        ))}
+      </div>
     </div>
   );
 }

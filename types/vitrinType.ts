@@ -15,7 +15,7 @@ export interface SlidesEntity {
 export interface GenresEntity {
   id: number;
   title: string;
-  posters?: (PostersEntity | null)[] | null;
+  posters?: PostersEntity[];
 }
 export interface PostersEntity {
   id: number;
