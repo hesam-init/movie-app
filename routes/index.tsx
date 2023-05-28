@@ -1,9 +1,9 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { api } from "../api/config.ts";
 import { apiRoute } from "../api/routes.ts";
-import GenreSlider from "../components/genreSlider/genreSlider.tsx";
 import { Vitrin } from "../types/vitrinType.ts";
 import { Head } from "$fresh/runtime.ts";
+import GenreSlider from "../components/genreSlider/GenreSlider.tsx";
 
 export const handler: Handlers<Vitrin | null> = {
   async GET(_, ctx) {

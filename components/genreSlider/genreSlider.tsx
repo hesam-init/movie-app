@@ -11,7 +11,7 @@ function GenreSlider({ id, title, posters }: GenreSliderProps) {
   return (
     <div className="text">
       <h1>{title}</h1>
-      <div className="flex overflow-x-scroll">
+      <div className="mt-3 flex gap-2 overflow-x-hidden">
         {posters?.map((data) => (
           <Slide
             image={data.image}

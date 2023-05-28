@@ -5,15 +5,17 @@ interface SlideProps {
 
 function Slide({ image, title }: SlideProps) {
   return (
-    <div className="border p-1 bg-[#334756]">
+    <div className="rounded-lg flex flex-col gap-3 p-[5px] bg-[#334756]">
       <div
         style={{
           height: `250px`,
-          width: `200px`,
+          width: `180px`,
           backgroundImage: `url(${image})`,
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
+          backgroundSize: "cover",
         }}
+        className="rounded-lg"
       >
       </div>
       <h1 className="truncate w-36 text-left">{title}</h1>
