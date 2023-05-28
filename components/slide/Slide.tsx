@@ -5,7 +5,7 @@ interface SlideProps {
 
 function Slide({ image, title }: SlideProps) {
   return (
-    <div className="rounded-lg flex flex-col gap-3 p-[5px] bg-[#334756]">
+    <div className="rounded-lg flex flex-col gap-3 p-[5px] bg-[#282C35]">
       <div
         style={{
           height: `250px`,

@@ -4,6 +4,7 @@ import { apiRoute } from "../api/routes.ts";
 import { Vitrin } from "../types/vitrinType.ts";
 import { Head } from "$fresh/runtime.ts";
 import GenreSlider from "../components/genreSlider/GenreSlider.tsx";
+import HeroHeader from "../islands/HeroHeader.tsx";
 
 export const handler: Handlers<Vitrin | null> = {
   async GET(_, ctx) {
@@ -29,16 +30,19 @@ export default function Page({ data }: PageProps<Vitrin | null>) {
         <title>Chad</title>
         <link rel="stylesheet" href="style/global.css" />
       </Head>
-      <div className="">
-        <div className="flex flex-col gap-5 text-right p-3">
-          {data.genres?.map((data) => (
-            <GenreSlider
-              key={data.id}
-              id={data.id}
-              title={data.title}
-              posters={data.posters}
-            />
-          ))}
+      <div className="w-full flex items-center justify-center">
+        <div className="w-full lg:max-w-screen-lg flex flex-col">
+          <HeroHeader posters={data.genres?.[1].posters?.slice(0, 9)} />
+          <div className="flex mt-8 flex-col gap-5 text-right px-3">
+            {data.genres?.map((data) => (
+              <GenreSlider
+                key={data.id}
+                id={data.id}
+                title={data.title}
+                posters={data.posters}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </>

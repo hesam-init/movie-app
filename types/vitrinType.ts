@@ -1,7 +1,7 @@
 export interface Vitrin {
   channels?: null[] | null;
   slides?: SlidesEntity[] | null;
-  genres?: GenresEntity[] | null;
+  genres?: GenresEntity[];
   actors?: null[] | null;
   countries?: CountryEntityOrCountriesEntity[] | null;
 }
