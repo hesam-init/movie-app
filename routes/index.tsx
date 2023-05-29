@@ -1,20 +1,21 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
-import { api } from "../api/config.ts";
-import { apiRoute } from "../api/routes.ts";
-import { Vitrin } from "../types/vitrinType.ts";
+import { api } from "@/api/config.ts";
+import { apiRoute } from "@/api/routes.ts";
+import { Vitrin } from "@/types/vitrinType.ts";
 import { Head } from "$fresh/runtime.ts";
 import { asset } from "$fresh/runtime.ts";
-import SearchBar from "../islands/SearchBar.tsx";
-import NavBar from "../components/NavBar.tsx";
-import HeroHeader from "../islands/HeroHeader.tsx";
-import GenreSlider from "../components/GenreSlider.tsx";
+import SearchBar from "@/islands/SearchBar.tsx";
+import NavBar from "@/components/NavBar.tsx";
+import HeroHeader from "@/islands/HeroHeader.tsx";
+import GenreSlider from "@/components/GenreSlider.tsx";
 
 export const handler: Handlers<Vitrin | null> = {
   async GET(_, ctx) {
     const resp = await api(apiRoute.VITRIN);
     const jsonData = await resp.json();
+
     if (resp.status !== 200) {
-      return ctx.render(null);
+      return ctx.renderNotFound();
     } else {
       const data: Vitrin = jsonData;
       return ctx.render(data);
@@ -22,7 +23,9 @@ export const handler: Handlers<Vitrin | null> = {
   },
 };
 
-export default function Page({ data }: PageProps<Vitrin | null>) {
+export default function HomePage(props: PageProps<Vitrin | null>) {
+  const { data } = props;
+
   if (!data) {
     return <h1>No data</h1>;
   }
@@ -30,14 +33,14 @@ export default function Page({ data }: PageProps<Vitrin | null>) {
   return (
     <>
       <Head>
-        <title>Chad</title>
+        <title>Movie App</title>
         <link rel="stylesheet" href={asset("style/global.css")} />
         <link rel="stylesheet" href={asset("style/home.css")} />
       </Head>
       <div className="w-full flex items-center justify-center">
         <div className="w-full p-3 space-y-5 lg:max-w-screen-lg flex flex-col">
           {/* navbar */}
-          <NavBar active="/" />
+          <NavBar active={props.route} />
 
           {/* hero header section */}
           <HeroHeader

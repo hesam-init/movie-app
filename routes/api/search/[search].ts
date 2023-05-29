@@ -13,10 +13,15 @@ export const handler: Handlers = {
     const headers = { "Content-Type": "application/json" };
 
     if (data.posters?.length === 0 || resp.status !== 200) {
-      return new Response(null, {
-        headers: headers,
-        status: 400,
-      });
+      return new Response(
+        JSON.stringify({
+          message: "not found",
+        }),
+        {
+          headers: headers,
+          status: 404,
+        }
+      );
     }
 
     return new Response(JSON.stringify(data), {
