@@ -2,6 +2,19 @@
   text-align: right;
 }
 
+.search-input-modal {
+  color: #000;
+  direction: rtl;
+}
+
+.search-input-modal::placeholder {
+  text-align: right;
+}
+
+.search-input-modal:focus {
+  color: #000;
+}
+
 .genre-title {
   position: relative;
   padding-right: 50px;

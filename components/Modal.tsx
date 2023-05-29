@@ -25,7 +25,10 @@ function Modal({ opened, onClose, children, position }: ModalProps) {
       >
         <div
           ref={ref as any}
-          className="max-w-screen-sm w-full bg-white rounded-xl shadow-lg h-96"
+          style={{
+            maxWidth: "480px",
+          }}
+          className="w-full bg-white rounded-md shadow-lg h-96"
         >
           {children}
         </div>
