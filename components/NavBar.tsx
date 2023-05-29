@@ -1,4 +1,5 @@
 import IconMovie from "https://deno.land/x/tabler_icons_tsx@0.0.3/tsx/movie.tsx";
+import SearchModal from "@/islands/SearchModal.tsx";
 
 interface Props {
   active: string;
@@ -13,12 +14,10 @@ function NavBar({ active }: Props) {
   ];
 
   return (
-    <div className="navbar mt-3 justify-between py-4 px-5 rounded-xl flex bg-[#1A1C22]">
+    <div className="navbar mt-3 items-center justify-between py-4 px-5 rounded-xl flex bg-[#1A1C22]">
       {/* icon */}
-      <div>
-        <IconMovie />
-        <h1></h1>
-      </div>
+      <IconMovie size={32} />
+      <SearchModal />
 
       {/* menus */}
       <ul class="flex flex-row-reverse items-center gap-4">

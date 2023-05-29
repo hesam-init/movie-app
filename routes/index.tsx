@@ -4,7 +4,6 @@ import { apiRoute } from "@/api/routes.ts";
 import { Vitrin } from "@/types/vitrinType.ts";
 import { Head } from "$fresh/runtime.ts";
 import { asset } from "$fresh/runtime.ts";
-import SearchBar from "@/islands/SearchBar.tsx";
 import NavBar from "@/components/NavBar.tsx";
 import HeroHeader from "@/islands/HeroHeader.tsx";
 import GenreSlider from "@/components/GenreSlider.tsx";
@@ -36,6 +35,7 @@ export default function HomePage(props: PageProps<Vitrin | null>) {
         <title>Movie App</title>
         <link rel="stylesheet" href={asset("style/global.css")} />
         <link rel="stylesheet" href={asset("style/home.css")} />
+        <link rel="stylesheet" href={asset("style/modal.css")} />
       </Head>
       <div className="w-full flex items-center justify-center">
         <div className="w-full p-3 space-y-5 lg:max-w-screen-lg flex flex-col">
@@ -49,9 +49,6 @@ export default function HomePage(props: PageProps<Vitrin | null>) {
               ...data.genres?.[1].posters?.slice(0, 4),
             ]}
           />
-
-          {/* search bar */}
-          {/* <SearchBar /> */}
 
           {/* sliders */}
           <div className="flex mt-8 flex-col gap-12 px-2 text-right">

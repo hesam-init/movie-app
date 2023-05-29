@@ -1,6 +1,8 @@
 {
   "deno.enable": true,
   "deno.lint": true,
+  "typescript.autoClosingTags": false,
+  "editor.folding": true,
   "editor.defaultFormatter": "denoland.vscode-deno",
   "cSpell.words": ["vitrin", "twind", "preact"],
   "conventionalCommits.autoCommit": false,

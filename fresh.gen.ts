@@ -9,7 +9,7 @@ import * as $2 from "./routes/api/search/[search].ts";
 import * as $3 from "./routes/index.tsx";
 import * as $4 from "./routes/movie.tsx";
 import * as $$0 from "./islands/HeroHeader.tsx";
-import * as $$1 from "./islands/SearchBar.tsx";
+import * as $$1 from "./islands/SearchModal.tsx";
 
 const manifest = {
   routes: {
@@ -21,7 +21,7 @@ const manifest = {
   },
   islands: {
     "./islands/HeroHeader.tsx": $$0,
-    "./islands/SearchBar.tsx": $$1,
+    "./islands/SearchModal.tsx": $$1,
   },
   baseUrl: import.meta.url,
   config,
