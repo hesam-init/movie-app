@@ -40,7 +40,12 @@ export default function Page({ data }: PageProps<Vitrin | null>) {
           <NavBar active="/" />
 
           {/* hero header section */}
-          <HeroHeader posters={data.genres?.[1].posters?.slice(0, 9)} />
+          <HeroHeader
+            posters={[
+              ...data.genres?.[0].posters?.slice(0, 4),
+              ...data.genres?.[1].posters?.slice(0, 4),
+            ]}
+          />
 
           {/* search bar */}
           {/* <SearchBar /> */}
