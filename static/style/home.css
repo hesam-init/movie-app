@@ -1,3 +1,19 @@
 .search-input::placeholder {
   text-align: right;
 }
+
+.genre-title {
+  position: relative;
+  padding-right: 50px;
+}
+
+.genre-title::after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  background-color: white;
+  padding: 2px;
+  right: 0;
+  top: 50%;
+  transform: translate(0,-50%);
+}

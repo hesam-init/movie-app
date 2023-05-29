@@ -46,14 +46,18 @@ export default function Page({ data }: PageProps<Vitrin | null>) {
           {/* <SearchBar /> */}
 
           {/* sliders */}
-          <div className="flex mt-8 flex-col gap-5 px-2 text-right">
+          <div className="flex mt-8 flex-col gap-12 px-2 text-right">
             {data.genres?.map((data) => (
-              <GenreSlider
-                key={data.id}
-                id={data.id}
-                title={data.title}
-                posters={data.posters}
-              />
+              <>
+                {data.posters?.length < 1 ? "" : (
+                  <GenreSlider
+                    key={data.id}
+                    id={data.id}
+                    title={data.title}
+                    posters={data.posters}
+                  />
+                )}
+              </>
             ))}
           </div>
         </div>

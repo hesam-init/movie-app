@@ -10,7 +10,7 @@ interface GenreSliderProps {
 function GenreSlider({ id, title, posters }: GenreSliderProps) {
   return (
     <div className="text">
-      <h1>{title}</h1>
+      <h1 className="genre-title text-xl font-bold">{title}</h1>
       <div className="mt-3 flex gap-2 overflow-x-hidden">
         {posters?.map((data) => (
           <Slide

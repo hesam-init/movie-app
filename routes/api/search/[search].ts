@@ -10,15 +10,17 @@ export const handler: Handlers = {
     const resp = await api(`${apiRoute.SEARCH}/${search}`);
     const data: Search = await resp.json();
 
+    const headers = { "Content-Type": "application/json" };
+
     if (data.posters?.length === 0 || resp.status !== 200) {
       return new Response(null, {
-        headers: { "Content-Type": "application/json" },
+        headers: headers,
         status: 400,
       });
     }
 
     return new Response(JSON.stringify(data), {
-      headers: { "Content-Type": "application/json" },
+      headers: headers,
       status: 200,
     });
   },
