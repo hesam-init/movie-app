@@ -27,8 +27,9 @@ function Modal({ opened, onClose, children, position }: ModalProps) {
           ref={ref as any}
           style={{
             maxWidth: "480px",
+            height: "300px",
           }}
-          className="w-full bg-white rounded-md shadow-lg h-96"
+          className="w-full bg-white rounded-md shadow-lg"
         >
           {children}
         </div>

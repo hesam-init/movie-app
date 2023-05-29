@@ -1,24 +1,49 @@
-import { useEffect, useState } from "preact/hooks";
+import { useEffect, useRef, useState } from "preact/hooks";
 import { Search } from "@/types/searchType.ts";
 import IconSearch from "https://deno.land/x/tabler_icons_tsx@0.0.3/tsx/search.tsx";
-import Modal from "../components/Modal.tsx";
+import Modal from "@/components/Modal.tsx";
 import { useDisclosure } from "@/hooks/useDisclosure.tsx";
+import useDebounce from "@/hooks/useDebounce.ts";
+import { JSX } from "preact";
 
 function SearchModal() {
+  const inputRef = useRef<HTMLInputElement>();
   const [movieName, setMovieName] = useState<string>("");
   const [moviesList, setMoviesList] = useState<Search>({});
+  const [isSearching, setIsSearching] = useState<boolean>(false);
 
   const [opened, { open, close }] = useDisclosure(false);
 
+  const debouncedValue = useDebounce<string>(movieName, 500);
+
+  const handleChange = (
+    { currentTarget }: JSX.TargetedEvent<HTMLInputElement, Event>,
+  ) => {
+    setMovieName(currentTarget.value);
+  };
+
+  // handling autofocus
+  useEffect(() => {
+    if (inputRef && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [opened]);
+
+  // handling data request
   useEffect(() => {
     if (movieName) {
+      setMoviesList({});
+      setIsSearching(true);
       fetch(`api/search/${movieName}`).then((res) => res.json()).then(
         (data) => {
+          setMoviesList(data);
           console.log(data);
         },
-      );
+      ).finally(() => {
+        setIsSearching(false);
+      });
     }
-  }, [movieName]);
+  }, [debouncedValue]);
 
   return (
     <div className="px-3 mr-auto">
@@ -30,17 +55,41 @@ function SearchModal() {
 
         {/* modal */}
         <Modal position="center" opened={opened} onClose={close}>
-          {/* search input */}
-          <div className="px-2 pt-1">
-            <div className="relative">
-              <div className="absolute top-1/2 left-2 -translate-y-1/2">
-                <IconSearch color="black" size={20} />
+          <div className="flex flex-col justify-between h-full">
+            {/* search input */}
+            <div className="block px-2 pt-1 border-b-2 pb-1">
+              <div className="relative">
+                <div className="absolute top-1/2 left-2 -translate-y-1/2">
+                  <IconSearch color="black" size={20} />
+                </div>
+                <input
+                  ref={inputRef}
+                  onInput={handleChange}
+                  placeholder="جستجو"
+                  className="px-3 outline-none search-input-modal py-1 w-full rounded-lg"
+                  type="text"
+                />
               </div>
-              <input
-                placeholder="جستجو"
-                className="px-3 outline-none search-input-modal py-1 w-full rounded-lg"
-                type="text"
-              />
+            </div>
+
+            {/* loading */}
+            <div className={`${isSearching && "mt-5"}`}>
+              {isSearching && (
+                <h1 className="text-black text-center">
+                  searching...
+                </h1>
+              )}
+            </div>
+
+            {/* posters list */}
+            <div className="overflow-y-auto flex-1 border-pink-500">
+              <div className="flex flex-col">
+                {moviesList.posters?.map((data) => (
+                  <h1 className="text-black">
+                    {data.title}
+                  </h1>
+                ))}
+              </div>
             </div>
           </div>
         </Modal>

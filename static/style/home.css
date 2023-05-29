@@ -1,5 +1,11 @@
+
+.search-input {
+  caret-color: transparent;
+}
+
 .search-input::placeholder {
   text-align: right;
+  caret-color: transparent;
 }
 
 .search-input-modal {
