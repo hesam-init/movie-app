@@ -10,7 +10,21 @@ interface HeroHeaderProps {
 function HeroHeader({ posters }: HeroHeaderProps) {
   const [activePoster, setActivePoster] = useState<number>(0);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextPoster();
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [activePoster]);
+
+  function resetPoster() {
+    if (activePoster === posters?.length - 1) {
+      setActivePoster(0);
+    }
+  }
+
   function nextPoster() {
+    resetPoster();
     if (activePoster < posters?.length - 1) {
       setActivePoster(activePoster + 1);
     }

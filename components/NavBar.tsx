@@ -9,6 +9,7 @@ function NavBar({ active }: Props) {
     { name: "خانه", href: "/" },
     { name: "فیلم", href: "/movie" },
     { name: "سریال", href: "/series" },
+    { name: "آموزش", href: "/faq" },
   ];
 
   return (
@@ -27,7 +28,7 @@ function NavBar({ active }: Props) {
               href={menu.href}
               className={`${
                 menu.href === active
-                  ? "font-bold border-b-2 text-white border-white"
+                  ? "border-b-2 text-xl text-white border-white"
                   : "text-gray-500 border-gray-500"
               } hover:text-gray-700`}
             >
