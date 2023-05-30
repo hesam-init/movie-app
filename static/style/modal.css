@@ -10,3 +10,28 @@
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
 }
+
+.search-input::placeholder {
+  text-align: right;
+  caret-color: transparent;
+}
+
+.search-input-modal {
+  color: #000;
+  direction: rtl;
+  background-color: transparent;
+}
+
+.search-input-modal::placeholder {
+  text-align: right;
+}
+
+.search-input-modal:focus {
+  color: #000;
+}
+
+.search-input {
+  caret-color: transparent;
+}
+
+

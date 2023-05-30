@@ -10,6 +10,7 @@ export default function MoviePage(props: PageProps) {
       <Head>
         <title>Movies List</title>
         <link rel="stylesheet" href={asset("style/global.css")} />
+        <link rel="stylesheet" href={asset("style/modal.css")} />
       </Head>
       <div className="w-full flex items-center justify-center">
         <div className="w-full p-3 space-y-5 lg:max-w-screen-lg flex flex-col">
