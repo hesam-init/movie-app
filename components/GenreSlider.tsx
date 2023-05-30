@@ -1,5 +1,5 @@
-import { PostersEntity } from "../types/vitrinType.ts";
-import Slide from "./Slide.tsx";
+import { PostersEntity } from "@/types/vitrinType.ts";
+import { Slide } from "./Slide.tsx";
 
 interface GenreSliderProps {
   id?: number;

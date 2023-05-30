@@ -5,6 +5,7 @@ import Modal from "@/components/Modal.tsx";
 import { useDisclosure } from "@/hooks/useDisclosure.tsx";
 import useDebounce from "@/hooks/useDebounce.ts";
 import { JSX } from "preact";
+import { SearchSlide } from "@/components/Slide.tsx";
 
 function SearchModal() {
   const inputRef = useRef<HTMLInputElement>();
@@ -57,7 +58,14 @@ function SearchModal() {
         <Modal position="center" opened={opened} onClose={close}>
           <div className="flex flex-col justify-between h-full">
             {/* search input */}
-            <div className="block px-2 pt-1 border-b-2 pb-1">
+            <div
+              onClick={() => {
+                if (inputRef && inputRef.current) {
+                  inputRef.current.focus();
+                }
+              }}
+              className="cursor-text block px-2 pt-1 border-b-2 pb-1"
+            >
               <div className="relative">
                 <div className="absolute top-1/2 left-2 -translate-y-1/2">
                   <IconSearch color="black" size={20} />
@@ -66,7 +74,7 @@ function SearchModal() {
                   ref={inputRef}
                   onInput={handleChange}
                   placeholder="جستجو"
-                  className="px-3 outline-none search-input-modal py-1 w-full rounded-lg"
+                  className="px-3 outline-none search-input-modal py-1 w-full"
                   type="text"
                 />
               </div>
@@ -82,12 +90,14 @@ function SearchModal() {
             </div>
 
             {/* posters list */}
-            <div className="overflow-y-auto flex-1 border-pink-500">
-              <div className="flex flex-col">
+            <div className="overflow-y-auto p-3 flex-1 border-pink-500">
+              <div className="grid grid-cols-3 gap-3">
                 {moviesList.posters?.map((data) => (
-                  <h1 className="text-black">
-                    {data.title}
-                  </h1>
+                  <SearchSlide
+                    type={data.type}
+                    image={data.image}
+                    title={data.title}
+                  />
                 ))}
               </div>
             </div>

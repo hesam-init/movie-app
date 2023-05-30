@@ -11,6 +11,7 @@
 .search-input-modal {
   color: #000;
   direction: rtl;
+  background-color: transparent;
 }
 
 .search-input-modal::placeholder {
