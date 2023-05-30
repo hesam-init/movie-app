@@ -44,10 +44,7 @@ export default function HomePage(props: PageProps<Vitrin | null>) {
 
           {/* hero header section */}
           <HeroHeader
-            posters={[
-              ...data.genres?.[0].posters?.slice(0, 4),
-              ...data.genres?.[1].posters?.slice(0, 4),
-            ]}
+            posters={data.genres?.[1].posters?.slice(0, 8)}
           />
 
           {/* sliders */}

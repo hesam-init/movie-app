@@ -18,14 +18,14 @@ function HeroHeader({ posters }: HeroHeaderProps) {
   }, [activePoster]);
 
   function resetPoster() {
-    if (activePoster === posters?.length - 1) {
+    if (posters !== undefined && activePoster === posters?.length - 1) {
       setActivePoster(0);
     }
   }
 
   function nextPoster() {
     resetPoster();
-    if (activePoster < posters?.length - 1) {
+    if (posters !== undefined && activePoster < posters?.length - 1) {
       setActivePoster(activePoster + 1);
     }
   }

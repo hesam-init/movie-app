@@ -4,7 +4,7 @@ import IconSearch from "https://deno.land/x/tabler_icons_tsx@0.0.3/tsx/search.ts
 import Modal from "@/components/Modal.tsx";
 import { useDisclosure } from "@/hooks/useDisclosure.tsx";
 import useDebounce from "@/hooks/useDebounce.ts";
-import { JSX } from "preact";
+import { JSX, Ref } from "preact";
 import { SearchSlide } from "@/components/Slide.tsx";
 
 function SearchModal() {
@@ -71,7 +71,7 @@ function SearchModal() {
                   <IconSearch color="black" size={20} />
                 </div>
                 <input
-                  ref={inputRef}
+                  ref={inputRef as Ref<HTMLInputElement>}
                   onInput={handleChange}
                   placeholder="جستجو"
                   className="px-3 outline-none search-input-modal py-1 w-full"

@@ -2,7 +2,7 @@ interface SlideProps {
   title: string;
   image: string;
   type?: string;
-  score: string;
+  score?: string;
 }
 
 function Slide({ image, title, score }: SlideProps) {
